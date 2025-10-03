@@ -1,0 +1,31 @@
+.card {
+    width: 600px;
+    max-width: 90%;
+    margin: 40px auto;
+    perspective: 1000px;
+    transition: transform 0.2s ease;
+  }
+  
+  .image {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background: transparent; /* чтобы svg с прозрачным фоном смотрелась */
+  }
+
+
+.card::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 25px;
+    background: skyblue;
+    border-radius: 50%;
+    filter: blur(12px);
+    z-index: -1;
+  }
+  

@@ -1,0 +1,56 @@
+.contactBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* чтобы на мобиле переносились */
+    margin: 20px 0;
+    transition: gap 0.3s ease;
+  }
+  
+  .url {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .icon {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #77b5ce;
+    padding: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .platform {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #172429;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* выбранный контакт увеличивается */
+  .url:hover {
+    transform: scale(1.15);
+    z-index: 2;
+  }
+  
+  /* подпись выезжает */
+  .url:hover .platform {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* остальные немного сжимаются */
+  .contactBlock:hover .url:not(:hover) {
+    transform: scale(0.9) translateY(10px);
+    opacity: 0.8;
+  }
+  

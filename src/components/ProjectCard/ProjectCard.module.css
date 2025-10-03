@@ -1,0 +1,137 @@
+.card {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;      /* не больше */
+    min-width: 280px;      /* на узких экранах не совсем сжимается ниже этого */
+    min-height: 200px;     /* чтобы карточка всегда занимала место */
+    background: #87ceeb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow .25s ease;
+    box-shadow: none;
+  }
+  
+  /* слегка подъём при hover (опционально) */
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+  }
+  
+  /* ---------- Фото (исходное состояние: правый край на вертикальной оси центра) ---------- */
+  .photo {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    /* фото занимает процент от карточки, чтобы подстраиваться */
+    width: 38%;
+    max-width: 300px;
+    min-width: 110px;
+    aspect-ratio: 1/1;
+    transform: translate(0%, -50%);   /* правый край у середины карточки */
+    background: #182d35;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: left .35s ease, transform .35s ease;
+    overflow: hidden;
+    z-index: 1; /* чуть ниже текста, чтобы название могло накрывать фото */
+  }
+  
+  
+  /* ---------- Блок с названием + описанием (центрирован по середине) ---------- */
+  .meta {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%); /* сам блок по центру */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: calc(50% - 44px); /* занимает правую половину примерно */
+    max-width: calc(100% - 200px);
+    z-index: 2; /* над фото */
+    pointer-events: none; /* чтобы hover уходил на карточку, а не на текст */
+  }
+  
+  /* название */
+  .name {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #081a08;
+    text-shadow: 0 0px 5px #c4dfe9, 0 0px 10px #88d0eb;
+    transition: top .35s ease, left .35s ease, transform .35s ease, font-size .25s ease;
+  }
+  
+  /* описание — по умолчанию скрыто */
+  .description {
+    margin: 0;
+    font-size: 15px;
+    color: #083a08;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  
+  /* ---------- Hover (только для устройств с hover — избегаем дерганья на тачах) ---------- */
+  @media (hover: hover) and (pointer: fine) {
+    /* фото уезжает влево (не меняем размер) */
+    .card:hover .photo {
+      left: 0px;                  /* фиксируем слева */
+      transform: translate(0, -50%);
+    }
+  
+    /* мета-блок «улетает» наверх и встает справа от фото */
+    .card:hover .meta {
+      top: 16px;
+      left: clamp(160px, 50%, 48%); /* адаптивная позиция: минимум 160px, иначе % */
+      transform: none;
+    }
+  
+    .card:hover .name {
+      font-size: 26px;
+    }
+  
+    /* описание проявляется прямо под названием */
+    .card:hover .description {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ---------- Mobile / маленькие экраны (<=720px) — карточка вертикальная ---------- */
+  @media (max-width: 720px) {
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px;
+      min-height: auto;
+    }
+  
+    .photo {
+      position: static;
+      width: 60%;
+      transform: none;
+      margin: 6px 0;
+      aspect-ratio: 1/1;
+    }
+  
+    .meta {
+      position: static;
+      transform: none;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      pointer-events: auto;
+      gap: 6px;
+      margin-top: 6px;
+    }
+  
+    .name { font-size: 28px; }
+    .description { opacity: 0; transform: none; font-size: 15px; }
+  }
+  
+  

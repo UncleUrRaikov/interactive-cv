@@ -1,0 +1,113 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #172429;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 2000px;
+  width: 100%;
+  margin: 0px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== HEADER ===== */
+.sections {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 8px 12px;
+}
+
+
+.main {
+  margin-top: 20px;
+  width: 100%;
+  max-width: fit-content;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== ABOUT ME ===== */
+.about-me {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 40px auto;
+  width: 120%;
+}
+.my-photo {
+  width: 200px;
+  height: 200px;
+  background: #87ceeb;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-photo img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.my-discription {
+  flex: 1;
+  background: #87ceeb;
+  padding: 15px;
+  border-radius: 8px;
+  width: auto;
+  height: auto;
+  margin-top: auto;
+}
+#name{
+  font-size: 24px;
+  margin: 0 0 10px 0;
+}
+#discription{
+  font-size: 18px;
+  margin: 0;
+}
+
+/* ===== PROJECTS ===== */
+.sections {
+  background: #87ceeb;
+  padding: 10px;
+  font-size: 28px;
+  margin: 30px auto 15px;
+  /*width: 80%;*/
+  border-radius: 5px 5px ;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- PROJECTS: контейнер карточек ---------- */
+.projects-block {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin: 20px auto;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ===== FOOTER ===== */
+.footer-place {
+  margin-top: auto;
+  background: #0d1416;
+  color: #87ceeb;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  border-top: 1.5px solid #98eaff;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+
