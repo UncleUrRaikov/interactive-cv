@@ -39,7 +39,7 @@ function CMCLicense() {
         onMouseLeave={handleMouseLeave}
       >
         <img
-          src="https://raw.githubusercontent.com/UncleUrRaikov/interactive-cv/main/images/license.svg"
+          src="/images/license.svg"
           alt="Лицензия Комунизм Мемов"
           className={style.image}
         />
