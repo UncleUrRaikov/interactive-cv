@@ -5,12 +5,12 @@ export const projects = [
     id: "p1",
     title: "YouTobe Channel",
     description: "_On free of everything time i make some funny reviwes on video-games. Right now i made on only 'Darksiders', but soon i'll make video on 'Darksiders 2'. So see you soon♥.",// не больше 350 символов
-    image: "/interactive-cv/images/YouTobe.png"
+    image: "/interactive-cv/images/youtobe.png"
   },{
     id: "p2",
     title: "Zabroshka Game",
     description: "An isometric sci-fi slasher with platformer elements. The project is currently on hold due to lack of time. However, it may be revived.............(! ITS IA ART!! !)",// не больше 350 символов
-    image: "/interactive-cv/images/Zabroshka.png"
+    image: "/interactive-cv/images/zabroshka.png"
   },{
     id: "p3",
     title: "CMC License",
@@ -20,7 +20,7 @@ export const projects = [
     id: "p4",
     title: "Work in Progress",
     description: "There is nothing, 'cuz work still in progress",// не больше 350 символов
-    image: "/interactive-cv/images/WiP.png"
+    image: "/interactive-cv/images/wip.png"
   }
 
 
