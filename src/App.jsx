@@ -21,7 +21,7 @@ function App() {
       <main className="main-content">
         {/* Me */}
         <section id="me" className="about-me">
-          <div className="my-photo"><img src="/interactive-cv/images/me.png" alt="Photo" /></div>
+          <div className="my-photo"><img src="https://github.com/UncleUrRaikov/interactive-cv/blob/main/images/me.png" alt="Photo" /></div>
           <div className="my-discription">
             <p id="name">Hello! Hello! i'm Uncle RaikoV</p>
             <p id="discription">and there is discription</p>
