@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640">
+  <style>
+    /* Орстоцк-стилизация: грубая печать, шрифты как у бланков */
+    .bg { fill: #93e0ff; } /* бумажный фон */
+    .frame { fill: none; stroke:#203036; stroke-width:4; }
+    .header { font: 900 34px/1 "Segoe UI", "Arial Black", sans-serif; fill:#1b1b1b; letter-spacing:2px; }
+    .sub { font:700 12px/1 "Georgia", serif; fill:#1b1b1b; }
+    .label { font:700 20px/1 "Georgia", serif; fill:#111; }
+    .value { font:500 16px/1 "Segoe UI", sans-serif; fill:#0b2330; }
+    .rules { font:600 18px/1 "Segoe UI", sans-serif; fill:#0b2330; }
+    .small { font:500 11px/1 "Segoe UI", sans-serif; fill:#0b2330; }
+    .stamp-red { font:800 16px/1 "Segoe UI", sans-serif; fill:#a80000; }
+    .warning { font:800 14px/1 "Segoe UI", sans-serif; fill:#a80000; }
+    .seal-text { font:700 10px/1 "Segoe UI", sans-serif; fill:#0b2b47; }
+    .divider { stroke:#bdb0a0; stroke-width:2; stroke-dasharray:6 4; }
+    .note { font:600 11px/1 "Segoe UI", sans-serif; fill:#7a2b2b; }
+  </style>
+
+  <!-- фон и рамка -->
+  <rect x="26" y="18" width="948" height="604" rx="12" ry="12" class="bg"/>
+  <rect x="26" y="18" width="948" height="604" rx="12" ry="12" class="frame"/>
+
+  <!-- верх: название -->
+  <rect x="26" y="18" width="948" height="110" rx="12" ry="12" fill="#203036" opacity="0.5"/>
+  <text x="60" y="78" class="header">ЛИЦЕНЗИЯ МЕМООБРАЩЕНИЯ РАЙКОВА</text>
+  <text x="60" y="100" class="sub">Серия: Небесно-Синяя Административная.</text>
+
+  <!-- фото -->
+  <rect x="720" y="160" width="200" height="260" rx="8" ry="8" fill="#f4f6f8" stroke="#cfc6b8" stroke-width="3"/>
+  <image x="725" y="165" width="190" height="250"  preserveAspectRatio="xMidYMid slice" href="me.png"/>
+
+  <!-- поля слева -->
+  <text x="60" y="170" class="label">Имя / Ник</text>
+  <text x="320" y="170" class="value">«Дядя Райков»</text>
+
+  <text x="60" y="205" class="label">Номер</text>
+  <text x="320" y="205" class="value">MEME-5513-SB-12712</text>
+
+  <text x="60" y="240" class="label">Категории</text>
+  <text x="320" y="240" class="value">Share / Remix / Parody</text>
+
+  <text x="60" y="275" class="label">Выдано</text>
+  <text x="320" y="275" class="value">ЧБК:КО ОКРУГА ПОДОЛЬСК</text>
+
+  <text x="60" y="310" class="label">Срок</text>
+  <text x="320" y="310" class="value">Пока существует интернет</text>
+
+  <!-- горизонтальная разделительная линия -->
+  <line x1="40" y1="340" x2="680" y2="340" class="divider"/>
+
+  <!-- заголовок правил -->
+  <text x="60" y="368" class="label">Привила мемокомунизма</text>
+
+  <!-- правила (точно как попросил) -->
+  <g transform="translate(60,400)">
+    <text x="0" y="0" class="rules">- Не пойман не вор</text>
+    <text x="0" y="25" class="rules">- Перепродажа чужих мемов карается анулированием лицензии</text>
+    <text x="0" y="50" class="rules">- Если кто то оскорбился мемом, простите, автору похуй</text>
+    <text x="0" y="75" class="rules">- Поддерживает совемстое производство контента.</text>
+    <text x="0" y="100" class="rules">- Потом ещё придумаю.</text>
+  </g>
+
+  <!-- печать / seal (оставлена как есть, стилизованный круг) -->
+  <g transform="translate(820,480)">
+    <circle cx="0" cy="0" r="54" fill="#fff" stroke="#cfe6ff" stroke-width="3"/>
+    <text x="-15" y="-12" class="seal-text">MEME</text>
+    <text x="-38" y="4" class="seal-text">PARODY STEAL</text>
+    <text x="-20" y="20" class="seal-text">LICENSE</text>
+  </g>
+
+  <!-- красная надпись в две строки, по центру блока справа -->
+  <g transform="translate(720,575)">
+    <rect x="-10" y="-60" width="220" height="120" rx="6" ry="6" fill="none"/>
+    <text x="90" y="-4" text-anchor="middle" class="warning">ВНИМАНИЕ! ЭТА ЛИЦЕНЗИЯ</text>
+    <text x="90" y="18" text-anchor="middle" class="warning">НЕ ОСВОБОЖДАЕТ ОТ ОТВЕТСТВЕННОСТИ</text>
+    <text x="90" y="32" text-anchor="middle" calss="small">я предупредил.</text>
+  </g>
+
+
+  <!-- подпись / дизайн -->
+  <text x="400" y="600" class="small" text-anchor="end">Disign GPT+URVProdaction. © ChillWithoutCringe:TheCulteralRest</text>
+
+</svg>
