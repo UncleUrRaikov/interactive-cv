@@ -139,3 +139,23 @@ body {
   width: 100%;
 }
 
+/* === АДАПТАЦИЯ ПОД МОБИЛКИ === */
+@media (max-width: 800px) {
+  body {
+    overflow-x: hidden;
+  }
+  .projects-block,
+  section {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .sections {
+    font-size: 1.2rem;
+  }
+}

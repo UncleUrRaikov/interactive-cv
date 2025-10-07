@@ -5,25 +5,32 @@
     min-width: 280px;      /* на узких экранах не совсем сжимается ниже этого */
     min-height: 200px;     /* чтобы карточка всегда занимала место */
     background: #87ceeb;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    transition: box-shadow .25s ease;
-    box-shadow: none;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow .25s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
   }
   
   /* слегка подъём при hover (опционально) */
   @media (hover: hover) and (pointer: fine) {
     .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .card:hover .hint {
+      opacity: 1;
+    }
   }
   
   /* ---------- Фото (исходное состояние: правый край на вертикальной оси центра) ---------- */
   .photo {
     position: absolute;
     top: 50%;
-    left: 15%;
+    left: 20%;
     /* фото занимает процент от карточки, чтобы подстраиваться */
-    width: 38%;
+    width: 40%;
     max-width: 300px;
     min-width: 110px;
     aspect-ratio: 1/1;
@@ -78,21 +85,15 @@
   
   /* ---------- Hover (только для устройств с hover — избегаем дерганья на тачах) ---------- */
   @media (hover: hover) and (pointer: fine) {
-    /* фото уезжает влево (не меняем размер) */
-    .card:hover .photo {
-      left: 0px;                  /* фиксируем слева */
-      transform: translate(0, -50%);
-    }
-  
-    /* мета-блок «улетает» наверх и встает справа от фото */
+
     .card:hover .meta {
-      top: 16px;
-      left: clamp(160px, 50%, 48%); /* адаптивная позиция: минимум 160px, иначе % */
+      left: clamp(160px, 50%, 47%); /* адаптивная позиция: минимум 160px, иначе % */
+      top: clamp(20px, 41%, 48%);  /* адаптивная позиция: минимум 16px, иначе % */
       transform: none;
     }
   
     .card:hover .name {
-      font-size: 26px;
+      font-size: 30px;
     }
   
     /* описание проявляется прямо под названием */
@@ -102,37 +103,78 @@
     }
   }
   
-  /* ---------- Mobile / маленькие экраны (<=720px) — карточка вертикальная ---------- */
-  @media (max-width: 720px) {
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 12px;
-      min-height: auto;
-    }
-  
-    .photo {
-      position: static;
-      width: 60%;
-      transform: none;
-      margin: 6px 0;
-      aspect-ratio: 1/1;
-    }
-  
-    .meta {
-      position: static;
-      transform: none;
-      width: 100%;
-      align-items: center;
-      text-align: center;
-      pointer-events: auto;
-      gap: 6px;
-      margin-top: 6px;
-    }
-  
-    .name { font-size: 28px; }
-    .description { opacity: 0; transform: none; font-size: 15px; }
+  .card.active .photo {
+    left: 0px;                  /* фиксируем слева */
+    transform: translate(0, -50%);
   }
   
+  .card.active .meta {
+    top: 16px;
+    left: clamp(160px, 35%, 48%);
+    transform: none;
+  }
   
+  .card.active .name {
+    font-size: 26px;
+    transform: translate(0%, 10%); 
+  }
+  
+  .card.active .description {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hint {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #0b2b2b;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+    /* ---------- Mobile / маленькие экраны (<=720px) — карточка вертикальная ---------- */
+    @media (max-width: 720px) {
+      .hint{
+        opacity: 1;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px;
+        min-height: auto;
+        width: 80%;
+        margin: 0 auto;
+      }
+    
+      .photo {
+        position: static;
+        width: 25%;
+        transform: none;
+        margin: 6px 0;
+        aspect-ratio: 1/1;
+      }
+    
+      .meta {
+        position: static;
+        transform: none;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        pointer-events: auto;
+        gap: 6px;
+        margin-top: 6px;
+      }
+    
+      .name { font-size: 1.1rem;transition: top 0.3s ease; }
+      .description { opacity: 0; transform: none; font-size: 0rem; }
+      .card.active .name { font-size: 1.3rem; transition: top 0.3s ease; }	
+      .card.active .description { font-size: 1.1rem; }
+    }
+    

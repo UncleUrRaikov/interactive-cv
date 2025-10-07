@@ -1,49 +1,134 @@
+/* БАЗА */
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 40px;
-    background: #87ceeb; /* фон шапки */
-    position: sticky;
-    width: 60%;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    border-radius: 0 0 10px 10px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1200;
+  background: #87ceeb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border-radius: 0 0 12px 12px;
+}
+
+/* Внутренний контейнер: центрирует содержимое и даёт max-width */
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 18px;
+}
+
+/* логотип */
+.logo img {
+  height: 44px;
+  display: block;
+}
+
+/* стандартное меню (десктоп) */
+.nav {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.nav a {
+  padding: 6px 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(6,22,29);
+  border-radius: 6px;
+  transition: color .2s ease, transform .2s ease, background .2s;
+}
+
+.nav a:hover {
+  color: #57d9f0;
+  transform: translateY(-2px);
+}
+
+/* бургер (по умолчанию скрыт) */
+.menuButton {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* простая «бургер»-палочка (стилизованная) */
+.burger {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #062029;
+  position: relative;
+}
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: #062029;
+}
+.burger::before { top: -8px; }
+.burger::after  { top: 8px; }
+
+/* Оверлей (по умолчанию скрыт) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0); /* прозрачный */
+  pointer-events: none;
+  transition: background .25s ease;
+  z-index: 1100;
+}
+.overlay.visible {
+  background: rgba(0,0,0,0.55);
+  pointer-events: auto;
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ========== */
+@media (max-width: 800px) {
+  .inner { padding: 10px 12px; }
+
+  /* показываем бургер */
+  .menuButton {
+    display: block;
   }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: #77b5ce;
-    text-shadow: 0 0 8px #79fff8;
-    display: none;
-  }
-  
+
+  /* логотип видим */
+  .logo img { height: 40px; }
+
+  /* скрываем обычную навигацию (она будет выезжать) */
   .nav {
-    display: flex;
-    gap: 30px;
-   
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-110%); /* скрыта выше экрана */
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px; /* место для логотипа/статуса */
+    gap: 10px;
+    background: rgba(11, 24, 32, 0.116);
+    height: 100vh;
+    z-index: 1150;
+    transition: transform 0.32s cubic-bezier(.2,.9,.2,1);
   }
-  
-  .nav a { 
-    padding: 5px 10px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    color: rgb(6, 22, 29);
-    border-radius: 5px 5px 5px 5px;
-    transition: color 0.3s ease, transform 0.3s ease;
+
+  /* открытая навигация */
+  .nav.open { transform: translateY(0%); }
+
+  .nav a {
+    color: #87ceeb;
+    padding: 14px 18px;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
   }
-  .nav :hover {
-    cursor: pointer;
-    background: #002136 ;
-  }
-  .nav a:active {
-    background-color: #172227;
-  }
-  .nav a:hover {
-    color: #57d9f0;
-    transform: translateY(-2px);
-  }
-  
+}
