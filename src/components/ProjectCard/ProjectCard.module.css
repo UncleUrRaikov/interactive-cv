@@ -1,7 +1,7 @@
 .card {
     position: relative;
     width: 90%;
-    max-width: 1200px;      /* не больше */
+    max-width: 1500px;      /* не больше */
     min-width: 280px;      /* на узких экранах не совсем сжимается ниже этого */
     min-height: 200px;     /* чтобы карточка всегда занимала место */
     background: #87ceeb;
@@ -9,6 +9,7 @@
     overflow: hidden;
     transition: box-shadow .25s ease;
     box-shadow: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
   }
   
   /* слегка подъём при hover (опционально) */

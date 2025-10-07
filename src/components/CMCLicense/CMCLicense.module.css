@@ -1,7 +1,7 @@
 .card {
     width: 600px;
     max-width: 90%;
-    margin: 40px auto;
+    margin: 100px auto;
     perspective: 1000px;
     transition: transform 0.2s ease;
   }

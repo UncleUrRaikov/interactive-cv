@@ -6,6 +6,7 @@
     flex-wrap: wrap; /* чтобы на мобиле переносились */
     margin: 20px 0;
     transition: gap 0.3s ease;
+    
   }
   
   .url {
@@ -13,6 +14,7 @@
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    
   }
   
   .icon {
@@ -23,6 +25,7 @@
     background: #77b5ce;
     padding: 10px;
     transition: transform 0.3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
   }
   
   .platform {
@@ -32,13 +35,14 @@
     font-weight: bold;
     color: #172429;
     opacity: 0;
+    
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   /* выбранный контакт увеличивается */
   .url:hover {
-    transform: scale(1.15);
+    transform: scale(1.15), translate(0, -20px);
     z-index: 2;
   }
   
@@ -50,6 +54,7 @@
   
   /* остальные немного сжимаются */
   .contactBlock:hover .url:not(:hover) {
+    box-shadow: none;
     transform: scale(0.9) translateY(10px);
     opacity: 0.8;
   }

@@ -12,9 +12,11 @@ import style from "./components/Contacts/Contacts.module.css";
 function App() {
 
   return (
+ <>
     <div className="content">
+      <div className="site-background"><img src="public/images/background.png"/></div>
       {/* HEADER */}
-      
+          <div className="site-bg" aria-hidden="true"></div>
       <Header />
 
       {/* MAIN */}
@@ -30,7 +32,7 @@ function App() {
 
         {/* Projects */}
         <section id="projects">
-          <h2 className="sections">my projects</h2>
+          <h2 className="sections">Projects</h2>
           <div className="projects-block">
             
             {projects.map((p) => (
@@ -45,12 +47,13 @@ function App() {
           </div>
         </section>
         {/* Special Card */}
-        <section id="card" className="CMCLicense">     
+        <section id="card" className="CMCLicense">   
+          <h2 className="sections">Comunism Memes Card License</h2>  
           <SpecialCard />
         </section>
         {/* Contact */}
         <section id="contacts">
-          <h2 className="sections">my contact</h2>
+          <h2 className="sections">Contacts</h2>
           <div className={style.contactBlock}>
             {contacts.map((c) => (
               <ContactCard
@@ -70,6 +73,7 @@ function App() {
         <p>© 2024 Sam Nachos. All rights reserved.</p>
       </footer>
     </div>
+    </>
   );
 }
 
